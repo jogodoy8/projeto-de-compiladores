@@ -1,5 +1,4 @@
 # p1.py
-# Autora: Joelma Godoy
 # Compilador LALG em Python
 # Técnica: Análise Sintática Ascendente (LALR(1)) com PLY (Yacc)
 
