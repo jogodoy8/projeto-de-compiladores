@@ -1,5 +1,4 @@
 # p2.py
-# Autora: Joelma Godoy
 # Executor de Código Objeto (Máquina Hipotética)
 # Parte 2 do Projeto de Compiladores
 
