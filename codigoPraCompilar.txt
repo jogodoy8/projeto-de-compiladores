@@ -1,0 +1,4 @@
+x = 10
+y = input()
+z = x + y * 2
+print(z)
