@@ -1,0 +1,12 @@
+# 1. Cache do Python 
+__pycache__/
+*.pyc
+
+# 2. Arquivos do PLY 
+# O yacc.yacc() cria arquivos toda vez que roda o código
+parsetab.py
+parser.out
+lextab.py
+
+# 3. Arquivos de saída do compilador
+codigoCompilado.txt
