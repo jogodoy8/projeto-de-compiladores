@@ -11,13 +11,12 @@ Como executar:
 3. Execute o código objeto por meio do comando python p2.py (p2.py deve estar no mesmo diretório do código objeto)
 
 Fluxo:
-codigoPraCompilar.txt
-        ↓
+codigoPraCompilar.txt →
       p1.py
 (análise + geração)
-        ↓
+        →
 codigoCompilado.txt
-        ↓
+       →
       p2.py
  (interpretação)
 
