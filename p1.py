@@ -1,6 +1,7 @@
 # p1.py
 # Compilador LALG em Python
 # Técnica: Análise Sintática Ascendente (LALR(1)) com PLY (Yacc)
+# Alocação de variáveis feita apenas no início do programa
 
 import ply.lex as lex
 import ply.yacc as yacc
@@ -47,19 +48,20 @@ def t_error(t):
 lexer = lex.lex()
 
 # ==================================================
-# GERAÇÃO DE CÓDIGO PARA MÁQUINA HIPOTÉTICA
+# ESTRUTURAS DO COMPILADOR
 # ==================================================
 
 codigo_objeto = []
 tabela_simbolos = {}
+variaveis_encontradas = set()
 
 def emit(instrucao):
     codigo_objeto.append(instrucao)
 
-def declarar_variavel(var):
+def registrar_variavel(var):
     if var not in tabela_simbolos:
         tabela_simbolos[var] = len(tabela_simbolos)
-        emit("ALME 1")
+        variaveis_encontradas.add(var)
 
 # ==================================================
 # ANÁLISE SINTÁTICA ASCENDENTE (LALR)
@@ -81,7 +83,7 @@ def p_comandos(p):
 
 def p_comando_atribuicao(p):
     'comando : ID EQUAL expressao'
-    declarar_variavel(p[1])
+    registrar_variavel(p[1])
     emit(f"ARMZ {tabela_simbolos[p[1]]}")
 
 def p_comando_print(p):
@@ -104,7 +106,7 @@ def p_expressao_num(p):
 
 def p_expressao_id(p):
     'expressao : ID'
-    declarar_variavel(p[1])
+    registrar_variavel(p[1])
     emit(f"CRVL {tabela_simbolos[p[1]]}")
 
 def p_expressao_input(p):
@@ -124,10 +126,21 @@ if __name__ == "__main__":
     with open("codigoPraCompilar.txt", "r", encoding="utf-8") as f:
         fonte = f.read()
 
+    # Início do programa
     emit("INPP")
+
+    # Primeira passada: identificar variáveis
     parser.parse(fonte)
 
-    with open("codigoCompilado.txt", "w", encoding="utf-8") as arq:
-        arq.write("\n".join(codigo_objeto))
+    # Inserir ALME para todas as variáveis, logo após INPP
+    codigo_objeto_com_alme = ["INPP"]
+    for _ in tabela_simbolos:
+        codigo_objeto_com_alme.append("ALME 1")
 
-    print("✔ Código objeto gerado com sucesso.")
+    # Inserir o restante do código (sem o INPP duplicado)
+    codigo_objeto_com_alme.extend(codigo_objeto[1:])
+
+    with open("codigoCompilado.txt", "w", encoding="utf-8") as arq:
+        arq.write("\n".join(codigo_objeto_com_alme))
+
+    print("✔ Código objeto gerado corretamente).")
