@@ -1,15 +1,11 @@
 # p2.py
-# Executor de Código Objeto (Máquina Hipotética)
+# Executor de Código Objeto – Máquina Hipotética
 # Parte 2 do Projeto de Compiladores
 
 class Instrucao:
     def __init__(self, instrucao, argumento=None):
         self.instrucao = instrucao
         self.argumento = argumento
-
-    def __repr__(self):
-        return f"{self.instrucao} {self.argumento if self.argumento is not None else ''}".strip()
-
 
 def carregar_codigo(arquivo):
     """
@@ -46,63 +42,51 @@ if __name__ == "__main__":
     # Ponteiro de instrução
     i = 0
 
-    # Topo da pilha
-    s = -1
-
     while i < len(codigo):
         instr = codigo[i].instrucao
         arg = codigo[i].argumento
 
         if instr == "INPP":
-            s = -1
+            D.clear()
 
         elif instr == "ALME":
-            for _ in range(arg):
-                D.append(0)
-                s += 1
+            D.append(0)
 
         elif instr == "CRCT":
             D.append(arg)
-            s += 1
 
         elif instr == "CRVL":
             D.append(D[arg])
-            s += 1
 
         elif instr == "SOMA":
-            D[s-1] = D[s-1] + D[s]
-            D.pop()
-            s -= 1
+            b = D.pop()
+            a = D.pop()
+            D.append(a + b)
 
         elif instr == "SUBT":
-            D[s-1] = D[s-1] - D[s]
-            D.pop()
-            s -= 1
+            b = D.pop()
+            a = D.pop()
+            D.append(a - b)
 
         elif instr == "MULT":
-            D[s-1] = D[s-1] * D[s]
-            D.pop()
-            s -= 1
+            b = D.pop()
+            a = D.pop()
+            D.append(a * b)
 
         elif instr == "DIVI":
-            D[s-1] = D[s-1] / D[s]
-            D.pop()
-            s -= 1
+            b = D.pop()
+            a = D.pop()
+            D.append(a / b)
 
         elif instr == "ARMZ":
-            D[arg] = D[s]
-            D.pop()
-            s -= 1
+            D[arg] = D.pop()
 
         elif instr == "LEIT":
             valor = float(input("Digite um valor: "))
             D.append(valor)
-            s += 1
 
         elif instr == "IMPR":
-            print(D[s])
-            D.pop()
-            s -= 1
+            print(D.pop())
 
         elif instr == "PARA":
             print("Execução finalizada.")
