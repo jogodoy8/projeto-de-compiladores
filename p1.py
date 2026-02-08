@@ -143,4 +143,4 @@ if __name__ == "__main__":
     with open("codigoCompilado.txt", "w", encoding="utf-8") as arq:
         arq.write("\n".join(codigo_objeto_com_alme))
 
-    print("✔ Código objeto gerado corretamente).")
+    print("✔ Código objeto gerado corretamente.")
