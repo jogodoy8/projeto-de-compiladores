@@ -9,4 +9,3 @@ Como executar:
 1. Tenha um arquivo nomeado codigoPraCompilar.txt no mesmo diretório de p1.py
 2. Execute através do comando python p1.py (Isso gerará o código objeto)
 3. Execute o código objeto por meio do comando python p2.py (p2.py deve estar no mesmo diretório do código objeto)
-4. A utilização da técnica LR atende explicitamente ao requisito de análise sintática ascendente solicitado no enunciado da disciplina.
