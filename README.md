@@ -20,6 +20,14 @@ codigoCompilado.txt
       p2.py
  (interpretação)
 
+Dependências:
+
+Pip install ply
+## Dependência
+```bash
+-python 3
+Pip install ply
+```
 OBS: A técnica ascendente foi escolhida conforme especificação da Disciplina Projeto de Compiladores, utilizando
 controle explícito de pilha sintática, tabela de análise e ações semânticas acopladas
 às reduções.
