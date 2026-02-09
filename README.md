@@ -10,14 +10,9 @@ Como executar:
 2. Execute através do comando python p1.py (Isso gerará o código objeto)
 3. Execute o código objeto por meio do comando python p2.py (p2.py deve estar no mesmo diretório do código objeto)
 4. Dependência:
+   bash → python 3 → pip install ply
 
-      '''bash →
-   python 3 →
-   Pip install ply
-   ---
-   
-
-Fluxo:
+  Fluxo:
 codigoPraCompilar.txt →
       p1.py
 (análise + geração)
