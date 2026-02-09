@@ -20,9 +20,6 @@ codigoCompilado.txt
       p2.py
  (interpretação)
 
-Dependências:
-
-Pip install ply
 ## Dependência
 ```bash
 -python 3
