@@ -9,6 +9,12 @@ Como executar:
 1. Tenha um arquivo nomeado codigoPraCompilar.txt no mesmo diretório de p1.py
 2. Execute através do comando python p1.py (Isso gerará o código objeto)
 3. Execute o código objeto por meio do comando python p2.py (p2.py deve estar no mesmo diretório do código objeto)
+   DEPENDÊNCIA:
+   '''bash
+   python 3
+   Pip install ply
+   ---
+   
 
 Fluxo:
 codigoPraCompilar.txt →
@@ -20,11 +26,6 @@ codigoCompilado.txt
       p2.py
  (interpretação)
 
-## Dependência
-'''bash
-python 3
-Pip install ply
----
 OBS: A técnica ascendente foi escolhida conforme especificação da Disciplina Projeto de Compiladores, utilizando
 controle explícito de pilha sintática, tabela de análise e ações semânticas acopladas
 às reduções.
