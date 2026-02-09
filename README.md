@@ -11,8 +11,8 @@ Como executar:
 3. Execute o código objeto por meio do comando python p2.py (p2.py deve estar no mesmo diretório do código objeto)
 4. Dependência:
 
-      '''bash
-   python 3
+      '''bash →
+   python 3 →
    Pip install ply
    ---
    
